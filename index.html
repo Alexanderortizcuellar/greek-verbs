@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greek Verb Master</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      .drop-zone {
+        transition: background-color 0.2s;
+      }
+      .drag-over {
+        background-color: #e0f2fe;
+        border-color: #3b82f6;
+      }
+      .draggable {
+        cursor: grab;
+      }
+      .draggable:active {
+        cursor: grabbing;
+      }
+
+      /* Custom scrollbar for the dictionary table */
+      .custom-scrollbar::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-100 font-sans text-slate-800 min-h-screen">
+    <div
+      id="app"
+      class="max-w-md mx-auto bg-white min-h-screen shadow-xl relative pb-20"
+    >
+      <header
+        class="bg-blue-600 text-white p-4 text-center rounded-b-2xl shadow-md"
+      >
+        <h1 class="text-2xl font-bold">
+          <i class="fa-solid fa-language mr-2"></i>Greek Verbs
+        </h1>
+        <button
+          v-if="currentMode !== 'menu' && !isLoading"
+          @click="goToMenu"
+          class="absolute top-4 left-4 bg-blue-700 hover:bg-blue-800 p-2 rounded-full transition"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+      </header>
+
+      <div
+        v-if="isLoading"
+        class="p-10 text-center flex flex-col items-center justify-center mt-20"
+      >
+        <i
+          class="fa-solid fa-circle-notch fa-spin text-4xl text-blue-500 mb-4"
+        ></i>
+        <p class="font-bold text-slate-600">Loading your verbs...</p>
+      </div>
+
+      <div v-if="loadError" class="p-6 mt-10">
+        <div
+          class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl"
+        >
+          <p class="font-bold mb-2">
+            <i class="fa-solid fa-triangle-exclamation mr-2"></i>Error Loading
+            Data
+          </p>
+          <p class="text-sm">{{ loadError }}</p>
+        </div>
+      </div>
+
+      <main
+        v-if="currentMode === 'menu' && !isLoading && !loadError"
+        class="p-6 flex flex-col gap-4 mt-4"
+      >
+        <h2 class="text-xl font-semibold text-center mb-4">Choose a Mode</h2>
+
+        <button
+          @click="startMode1"
+          class="bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-xl shadow-md text-left flex items-center transition transform hover:-translate-y-1"
+        >
+          <div class="bg-white/20 p-3 rounded-lg mr-4">
+            <i class="fa-solid fa-book fa-xl w-6 text-center"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">Meaning Matcher</h3>
+            <p class="text-sm opacity-90">Match between Greek & English.</p>
+          </div>
+        </button>
+
+        <button
+          @click="startMode2"
+          class="bg-purple-500 hover:bg-purple-600 text-white p-4 rounded-xl shadow-md text-left flex items-center transition transform hover:-translate-y-1"
+        >
+          <div class="bg-white/20 p-3 rounded-lg mr-4">
+            <i class="fa-solid fa-bolt fa-xl w-6 text-center"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">Conjugation Drill</h3>
+            <p class="text-sm opacity-90">Translate specific conjugations.</p>
+          </div>
+        </button>
+
+        <button
+          @click="startMode3"
+          class="bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-xl shadow-md text-left flex items-center transition transform hover:-translate-y-1"
+        >
+          <div class="bg-white/20 p-3 rounded-lg mr-4">
+            <i class="fa-solid fa-puzzle-piece fa-xl w-6 text-center"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">Table Puzzle</h3>
+            <p class="text-sm opacity-90">Drag & Drop the pronouns.</p>
+          </div>
+        </button>
+
+        <button
+          @click="startMode4"
+          class="bg-slate-700 hover:bg-slate-800 text-white p-4 rounded-xl shadow-md text-left flex items-center transition transform hover:-translate-y-1"
+        >
+          <div class="bg-white/20 p-3 rounded-lg mr-4">
+            <i class="fa-solid fa-magnifying-glass fa-xl w-6 text-center"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">Verb Dictionary</h3>
+            <p class="text-sm opacity-90">Search and view full tables.</p>
+          </div>
+        </button>
+      </main>
+
+      <main v-if="currentMode === 'mode1'" class="p-6">
+        <div class="text-center mb-8 mt-4">
+          <p class="text-sm text-slate-500 font-bold uppercase tracking-wide">
+            What does this mean?
+          </p>
+          <h2 class="text-4xl font-black text-blue-600 my-4 leading-tight">
+            {{ m1CurrentQuestion.prompt }}
+          </h2>
+        </div>
+        <div class="flex flex-col gap-3">
+          <button
+            v-for="(option, index) in m1Options"
+            :key="index"
+            @click="checkM1Answer(option)"
+            :class="[ 'p-4 rounded-xl border-2 font-semibold text-lg transition', 
+                              feedbackState === 'correct' && option === m1CurrentQuestion.answer ? 'bg-emerald-100 border-emerald-500 text-emerald-700' :
+                              feedbackState === 'wrong' && option === m1LastSelected ? 'bg-red-100 border-red-500 text-red-700' :
+                              'bg-white border-slate-200 hover:border-blue-400 hover:bg-blue-50 text-slate-700' ]"
+          >
+            {{ option }}
+          </button>
+        </div>
+      </main>
+
+      <main v-if="currentMode === 'mode2'" class="p-6">
+        <div class="text-center mb-8 mt-4">
+          <p class="text-sm text-slate-500 font-bold uppercase tracking-wide">
+            Translate this phrase
+          </p>
+          <h2 class="text-3xl font-black text-purple-600 my-4 leading-tight">
+            {{ m2CurrentQuestion.prompt }}
+          </h2>
+          <p class="text-sm text-slate-400 font-bold uppercase">
+            Verb: {{ m2CurrentQuestion.root }}
+          </p>
+        </div>
+        <div class="flex flex-col gap-3">
+          <button
+            v-for="(option, index) in m2Options"
+            :key="index"
+            @click="checkM2Answer(option)"
+            :class="[ 'p-4 rounded-xl border-2 font-semibold text-lg transition', 
+                              feedbackState === 'correct' && option === m2CurrentQuestion.answer ? 'bg-emerald-100 border-emerald-500 text-emerald-700' :
+                              feedbackState === 'wrong' && option === m2LastSelected ? 'bg-red-100 border-red-500 text-red-700' :
+                              'bg-white border-slate-200 hover:border-purple-400 hover:bg-purple-50 text-slate-700' ]"
+          >
+            {{ option }}
+          </button>
+        </div>
+      </main>
+
+      <main v-if="currentMode === 'mode3'" class="p-6">
+        <div class="text-center mb-4">
+          <h2 class="text-2xl font-black text-orange-500">
+            {{ m3CurrentVerb.greek }}
+          </h2>
+          <p class="text-sm text-slate-500 uppercase font-bold">
+            {{ m3CurrentTense }} Tense
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-2 mb-8">
+          <div
+            v-for="person in pronounOrder"
+            :key="person"
+            class="flex items-center gap-2"
+          >
+            <div
+              class="w-1/3 text-right font-bold text-slate-600 bg-slate-200 p-3 rounded-lg"
+            >
+              {{ pronounMap[person].split(' ')[0] }}
+            </div>
+            <div
+              class="w-2/3 border-2 border-dashed border-slate-300 rounded-lg p-3 min-h-[50px] drop-zone flex items-center justify-center bg-slate-50"
+              @dragover.prevent="dragOver($event)"
+              @dragleave.prevent="dragLeave($event)"
+              @drop="onDrop($event, person)"
+              @click="removeDroppedItem(person)"
+              :class="{'border-emerald-500 bg-emerald-50': m3Answers[person], 'cursor-pointer hover:bg-red-50': m3Answers[person]}"
+            >
+              <span
+                v-if="m3Answers[person]"
+                class="font-bold text-lg text-slate-800"
+                >{{ m3Answers[person].greek }}</span
+              >
+              <span v-else class="text-slate-400 text-sm">Drop here</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-200 p-4 rounded-xl">
+          <p
+            class="text-xs text-center text-slate-500 mb-2 uppercase font-bold"
+          >
+            Word Bank
+          </p>
+          <div class="flex flex-wrap gap-2 justify-center">
+            <div
+              v-for="item in m3Bank"
+              :key="item.greek"
+              draggable="true"
+              @dragstart="onDragStart($event, item)"
+              class="draggable bg-white shadow-sm border border-slate-300 rounded-lg px-4 py-2 font-bold text-orange-600"
+            >
+              {{ item.greek }}
+            </div>
+            <div
+              v-if="m3Bank.length === 0"
+              class="text-emerald-600 font-bold w-full text-center p-2"
+            >
+              <i class="fa-solid fa-check-circle mr-1"></i> Completed!
+              <button
+                @click="startMode3"
+                class="block mx-auto mt-2 text-sm bg-emerald-500 text-white px-4 py-1 rounded"
+              >
+                Next Verb
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <main
+        v-if="currentMode === 'mode4'"
+        class="p-6 h-[calc(100vh-80px)] flex flex-col"
+      >
+        <div v-if="!selectedSearchVerb" class="flex flex-col h-full">
+          <div class="relative mb-4">
+            <i
+              class="fa-solid fa-search absolute left-3 top-3.5 text-slate-400"
+            ></i>
+            <input
+              v-model="searchQuery"
+              type="text"
+              placeholder="Search in Greek or English..."
+              class="w-full bg-slate-100 border border-slate-300 rounded-xl py-3 pl-10 pr-4 focus:outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200 transition"
+            />
+          </div>
+
+          <div
+            class="overflow-y-auto custom-scrollbar flex-1 rounded-xl border border-slate-200 bg-white"
+          >
+            <div
+              v-if="filteredVerbs.length === 0"
+              class="p-8 text-center text-slate-400"
+            >
+              <p>No verbs found.</p>
+            </div>
+            <button
+              v-for="verbData in filteredVerbs"
+              :key="verbData.verb.greek"
+              @click="selectVerbForDetails(verbData)"
+              class="w-full text-left p-4 border-b border-slate-100 hover:bg-slate-50 transition flex justify-between items-center last:border-0"
+            >
+              <div>
+                <p class="font-bold text-lg text-slate-800">
+                  {{ verbData.verb.greek }}
+                </p>
+                <p class="text-sm text-slate-500">
+                  {{ getEnglishMeaning(verbData) }}
+                </p>
+              </div>
+              <i class="fa-solid fa-chevron-right text-slate-300"></i>
+            </button>
+          </div>
+        </div>
+
+        <div v-else class="flex flex-col h-full">
+          <button
+            @click="selectedSearchVerb = null"
+            class="mb-4 text-slate-500 hover:text-slate-800 font-bold text-sm flex items-center"
+          >
+            <i class="fa-solid fa-arrow-left mr-2"></i> Back to search
+          </button>
+
+          <div class="mb-4">
+            <h2 class="text-3xl font-black text-slate-800">
+              {{ selectedSearchVerb.verb.greek }}
+            </h2>
+            <p class="text-lg text-slate-500">
+              {{ getEnglishMeaning(selectedSearchVerb) }}
+            </p>
+          </div>
+
+          <div class="overflow-y-auto custom-scrollbar flex-1 pb-10">
+            <div
+              v-for="(conjugations, tense) in groupedConjugations"
+              :key="tense"
+              class="mb-6"
+            >
+              <h3
+                class="font-bold text-slate-700 bg-slate-200 px-3 py-1 rounded-t-lg uppercase text-sm tracking-wider"
+              >
+                {{ tense }}
+              </h3>
+              <div
+                class="bg-white border border-slate-200 rounded-b-lg overflow-hidden"
+              >
+                <div
+                  v-for="conj in conjugations"
+                  :key="conj.person"
+                  class="flex border-b border-slate-100 last:border-0 p-2 items-center hover:bg-slate-50"
+                >
+                  <div
+                    class="w-1/4 text-xs font-bold text-slate-400 text-right pr-3"
+                  >
+                    {{ pronounMap[conj.person].split(' ')[0] }}
+                  </div>
+                  <div class="w-1/3 font-bold text-slate-800">
+                    {{ conj.greek }}
+                  </div>
+                  <div class="w-5/12 text-sm text-slate-500 italic">
+                    {{ conj.english }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div
+        v-if="feedbackState"
+        class="fixed bottom-0 left-0 right-0 p-4 transition-all z-50"
+      >
+        <div
+          class="max-w-md mx-auto p-4 rounded-xl font-bold flex justify-between items-center shadow-2xl"
+          :class="feedbackState === 'correct' ? 'bg-emerald-500 text-white' : 'bg-red-500 text-white'"
+        >
+          <span class="text-lg">
+            <i
+              :class="feedbackState === 'correct' ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-xmark'"
+              class="mr-2"
+            ></i>
+            {{ feedbackState === 'correct' ? 'Excellent!' : 'Not quite right.'
+            }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const { createApp, ref, reactive, computed, onMounted } = Vue;
+
+      const pronounMap = {
+        ego: "εγώ (I)",
+        esy: "εσύ (you)",
+        aftos: "αυτός (he/she/it)",
+        emeis: "εμείς (we)",
+        eseis: "εσείς (you all)",
+        aftoi: "αυτοί (they)",
+      };
+      const pronounOrder = ["ego", "esy", "aftos", "emeis", "eseis", "aftoi"];
+
+      createApp({
+        setup() {
+          const rawData = ref({});
+          const isLoading = ref(true);
+          const loadError = ref(null);
+
+          const currentMode = ref("menu");
+          const feedbackState = ref(null);
+
+          const getRandomItem = (arr) =>
+            arr[Math.floor(Math.random() * arr.length)];
+          const shuffleArray = (array) =>
+            array.slice().sort(() => Math.random() - 0.5);
+
+          // Helper to safely get the English meaning, avoiding empty strings
+          const getEnglishMeaning = (verbNode) => {
+            let eng = verbNode.verb.english;
+            if (!eng || eng.trim() === "") {
+              eng =
+                verbNode.meanings && verbNode.meanings.length > 0
+                  ? verbNode.meanings[0]
+                  : "Unknown";
+            }
+            return eng.trim();
+          };
+
+          onMounted(async () => {
+            try {
+              const response = await fetch("conjugation.json");
+              if (!response.ok)
+                throw new Error(`HTTP error! status: ${response.status}`);
+              rawData.value = await response.json();
+              if (Object.keys(rawData.value).length === 0)
+                throw new Error("JSON file is empty.");
+              isLoading.value = false;
+            } catch (error) {
+              console.error("Fetch error:", error);
+              loadError.value =
+                "Could not load conjugation.json. Make sure you are running a local web server.";
+              isLoading.value = false;
+            }
+          });
+
+          const goToMenu = () => {
+            currentMode.value = "menu";
+            feedbackState.value = null;
+            searchQuery.value = "";
+            selectedSearchVerb.value = null;
+          };
+
+          const showFeedback = (isCorrect, nextFunc) => {
+            feedbackState.value = isCorrect ? "correct" : "wrong";
+            setTimeout(() => {
+              feedbackState.value = null;
+              if (isCorrect) nextFunc();
+            }, 1000);
+          };
+
+          // --- MODE 1: MEANING MATCHER (Now Bidirectional) ---
+          const m1CurrentQuestion = ref({});
+          const m1Options = ref([]);
+          const m1LastSelected = ref("");
+
+          const startMode1 = () => {
+            currentMode.value = "mode1";
+            generateM1();
+          };
+
+          const generateM1 = () => {
+            const keys = Object.keys(rawData.value);
+            const targetKey = getRandomItem(keys);
+            const targetVerb = rawData.value[targetKey];
+
+            const greekMeaning = targetVerb.verb.greek;
+            const englishMeaning = getEnglishMeaning(targetVerb);
+
+            // 50/50 Chance for prompt language
+            const isGreekPrompt = Math.random() > 0.5;
+
+            m1CurrentQuestion.value = {
+              prompt: isGreekPrompt ? greekMeaning : englishMeaning,
+              answer: isGreekPrompt ? englishMeaning : greekMeaning,
+              isGreekPrompt: isGreekPrompt,
+            };
+
+            let options = [m1CurrentQuestion.value.answer];
+            const maxOptions = Math.min(4, keys.length);
+            let attempts = 0;
+
+            while (options.length < maxOptions && attempts < 100) {
+              let wrongVerb = rawData.value[getRandomItem(keys)];
+              let wrongOption = isGreekPrompt
+                ? getEnglishMeaning(wrongVerb)
+                : wrongVerb.verb.greek;
+
+              if (!options.includes(wrongOption) && wrongOption !== "Unknown") {
+                options.push(wrongOption);
+              }
+              attempts++;
+            }
+            m1Options.value = shuffleArray(options);
+          };
+
+          const checkM1Answer = (option) => {
+            if (feedbackState.value) return;
+            m1LastSelected.value = option;
+            showFeedback(option === m1CurrentQuestion.value.answer, generateM1);
+          };
+
+          // --- MODE 2: CONJUGATION DRILL (Already Bidirectional, keeping intact) ---
+          const m2CurrentQuestion = ref({});
+          const m2Options = ref([]);
+          const m2LastSelected = ref("");
+
+          const startMode2 = () => {
+            currentMode.value = "mode2";
+            generateM2();
+          };
+
+          const generateM2 = () => {
+            const verbKeys = Object.keys(rawData.value);
+            const randomVerbKey = getRandomItem(verbKeys);
+            const targetVerb = rawData.value[randomVerbKey];
+            const targetConjugation = getRandomItem(targetVerb.conjugations);
+
+            // 50/50 Chance
+            const isGreekToEnglish = Math.random() > 0.5;
+
+            m2CurrentQuestion.value = {
+              root: isGreekToEnglish
+                ? targetVerb.verb.greek
+                : getEnglishMeaning(targetVerb),
+              prompt: isGreekToEnglish
+                ? targetConjugation.greek
+                : targetConjugation.english,
+              answer: isGreekToEnglish
+                ? targetConjugation.english
+                : targetConjugation.greek,
+            };
+
+            let options = [m2CurrentQuestion.value.answer];
+            const sameTenseConjugations = targetVerb.conjugations.filter(
+              (c) => c.tense === targetConjugation.tense,
+            );
+
+            const maxOptions = Math.min(4, sameTenseConjugations.length);
+            let attempts = 0;
+
+            while (options.length < maxOptions && attempts < 50) {
+              let randomConj = getRandomItem(sameTenseConjugations);
+              let wrongOpt = isGreekToEnglish
+                ? randomConj.english
+                : randomConj.greek;
+              if (!options.includes(wrongOpt)) options.push(wrongOpt);
+              attempts++;
+            }
+            m2Options.value = shuffleArray(options);
+          };
+
+          const checkM2Answer = (option) => {
+            if (feedbackState.value) return;
+            m2LastSelected.value = option;
+            showFeedback(option === m2CurrentQuestion.value.answer, generateM2);
+          };
+
+          // --- MODE 3: DRAG AND DROP PUZZLE ---
+          const m3CurrentVerb = ref({});
+          const m3CurrentTense = ref("present");
+          const m3Bank = ref([]);
+          const m3Answers = reactive({});
+          let draggedItem = null;
+
+          const startMode3 = () => {
+            currentMode.value = "mode3";
+            pronounOrder.forEach((p) => (m3Answers[p] = null));
+
+            const verbKeys = Object.keys(rawData.value);
+            const randomVerbKey = getRandomItem(verbKeys);
+            m3CurrentVerb.value = rawData.value[randomVerbKey].verb;
+
+            const allTenses = [
+              ...new Set(
+                rawData.value[randomVerbKey].conjugations.map((c) => c.tense),
+              ),
+            ];
+            m3CurrentTense.value = getRandomItem(allTenses);
+
+            const targetConjugations = rawData.value[
+              randomVerbKey
+            ].conjugations.filter((c) => c.tense === m3CurrentTense.value);
+            m3Bank.value = shuffleArray([...targetConjugations]);
+          };
+
+          const onDragStart = (event, item) => {
+            draggedItem = item;
+            event.dataTransfer.setData("text/plain", item.greek);
+            event.dataTransfer.effectAllowed = "move";
+          };
+          const dragOver = (event) =>
+            event.currentTarget.classList.add("drag-over");
+          const dragLeave = (event) =>
+            event.currentTarget.classList.remove("drag-over");
+          const onDrop = (event, person) => {
+            event.currentTarget.classList.remove("drag-over");
+            if (!draggedItem) return;
+            if (draggedItem.person === person) {
+              m3Answers[person] = draggedItem;
+              m3Bank.value = m3Bank.value.filter(
+                (i) => i.greek !== draggedItem.greek,
+              );
+            } else {
+              event.currentTarget.classList.add("border-red-500", "bg-red-50");
+              setTimeout(
+                () =>
+                  event.currentTarget.classList.remove(
+                    "border-red-500",
+                    "bg-red-50",
+                  ),
+                300,
+              );
+            }
+            draggedItem = null;
+          };
+          const removeDroppedItem = (person) => {
+            if (m3Answers[person]) {
+              m3Bank.value.push(m3Answers[person]);
+              m3Answers[person] = null;
+            }
+          };
+
+          // --- MODE 4: DICTIONARY / SEARCH ---
+          const searchQuery = ref("");
+          const selectedSearchVerb = ref(null);
+
+          const startMode4 = () => {
+            currentMode.value = "mode4";
+            searchQuery.value = "";
+            selectedSearchVerb.value = null;
+          };
+
+          const filteredVerbs = computed(() => {
+            const verbs = Object.values(rawData.value);
+            if (!searchQuery.value) return verbs;
+
+            const query = searchQuery.value.toLowerCase().trim();
+            return verbs.filter((v) => {
+              const greek = v.verb.greek.toLowerCase();
+              const english = getEnglishMeaning(v).toLowerCase();
+              return greek.includes(query) || english.includes(query);
+            });
+          });
+
+          const selectVerbForDetails = (verbData) => {
+            selectedSearchVerb.value = verbData;
+          };
+
+          // Groups the flat conjugation array into an object grouped by tense
+          const groupedConjugations = computed(() => {
+            if (!selectedSearchVerb.value) return {};
+
+            const groups = {};
+            selectedSearchVerb.value.conjugations.forEach((conj) => {
+              if (!groups[conj.tense]) groups[conj.tense] = [];
+              groups[conj.tense].push(conj);
+            });
+
+            // Sort each group by the standard pronoun order
+            for (const tense in groups) {
+              groups[tense].sort(
+                (a, b) =>
+                  pronounOrder.indexOf(a.person) -
+                  pronounOrder.indexOf(b.person),
+              );
+            }
+
+            return groups;
+          });
+
+          return {
+            isLoading,
+            loadError,
+            currentMode,
+            goToMenu,
+            feedbackState,
+            pronounMap,
+            pronounOrder,
+            getEnglishMeaning,
+            startMode1,
+            m1CurrentQuestion,
+            m1Options,
+            m1LastSelected,
+            checkM1Answer,
+            startMode2,
+            m2CurrentQuestion,
+            m2Options,
+            m2LastSelected,
+            checkM2Answer,
+            startMode3,
+            m3CurrentVerb,
+            m3CurrentTense,
+            m3Bank,
+            m3Answers,
+            onDragStart,
+            dragOver,
+            dragLeave,
+            onDrop,
+            removeDroppedItem,
+            startMode4,
+            searchQuery,
+            filteredVerbs,
+            selectedSearchVerb,
+            selectVerbForDetails,
+            groupedConjugations,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

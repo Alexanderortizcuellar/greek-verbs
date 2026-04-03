@@ -1,0 +1,1462 @@
+[
+    {
+        "greek": "είμαι",
+        "english": [
+            "to be"
+        ]
+    },
+    {
+        "greek": "έχω",
+        "english": [
+            "to have"
+        ]
+    },
+    {
+        "greek": "κάνω",
+        "english": [
+            "to do",
+            " to make"
+        ]
+    },
+    {
+        "greek": "λέω",
+        "english": [
+            "to say",
+            " to tell"
+        ]
+    },
+    {
+        "greek": "θέλω",
+        "english": [
+            "to want"
+        ]
+    },
+    {
+        "greek": "μπορώ",
+        "english": [
+            "to be able",
+            " can"
+        ]
+    },
+    {
+        "greek": "ξέρω",
+        "english": [
+            "to know (a fact)"
+        ]
+    },
+    {
+        "greek": "πρέπει",
+        "english": [
+            "must",
+            " should (impersonal)"
+        ]
+    },
+    {
+        "greek": "υπάρχω",
+        "english": [
+            "to exist",
+            " there is/are"
+        ]
+    },
+    {
+        "greek": "γίνομαι",
+        "english": [
+            "to become",
+            " to happen"
+        ]
+    },
+    {
+        "greek": "πηγαίνω",
+        "english": [
+            "to go (standard)"
+        ]
+    },
+    {
+        "greek": "πάω",
+        "english": [
+            "to go (colloquial)"
+        ]
+    },
+    {
+        "greek": "έρχομαι",
+        "english": [
+            "to come"
+        ]
+    },
+    {
+        "greek": "φεύγω",
+        "english": [
+            "to leave",
+            " to go away"
+        ]
+    },
+    {
+        "greek": "μπαίνω",
+        "english": [
+            "to enter",
+            " to go in"
+        ]
+    },
+    {
+        "greek": "βγαίνω",
+        "english": [
+            "to go out",
+            " to exit"
+        ]
+    },
+    {
+        "greek": "φτάνω",
+        "english": [
+            "to arrive",
+            " to reach"
+        ]
+    },
+    {
+        "greek": "γυρίζω",
+        "english": [
+            "to turn",
+            " to return",
+            " to come back"
+        ]
+    },
+    {
+        "greek": "κατεβαίνω",
+        "english": [
+            "to go down",
+            " to get off"
+        ]
+    },
+    {
+        "greek": "μένω",
+        "english": [
+            "to stay",
+            " to live (reside)"
+        ]
+    },
+    {
+        "greek": "τρέχω",
+        "english": [
+            "to run"
+        ]
+    },
+    {
+        "greek": "πέφτω",
+        "english": [
+            "to fall"
+        ]
+    },
+    {
+        "greek": "ακολουθώ",
+        "english": [
+            "to follow",
+            " to attend",
+            " to pursue"
+        ]
+    },
+    {
+        "greek": "μετακινώ",
+        "english": [
+            "to move (an object)"
+        ]
+    },
+    {
+        "greek": "οδηγώ",
+        "english": [
+            "to drive"
+        ]
+    },
+    {
+        "greek": "ταξιδεύω",
+        "english": [
+            "to travel"
+        ]
+    },
+    {
+        "greek": "βλέπω",
+        "english": [
+            "to see"
+        ]
+    },
+    {
+        "greek": "ακούω",
+        "english": [
+            "to hear",
+            " to listen"
+        ]
+    },
+    {
+        "greek": "ψάχνω",
+        "english": [
+            "to search",
+            " to look for"
+        ]
+    },
+    {
+        "greek": "νομίζω",
+        "english": [
+            "to think",
+            " to suppose"
+        ]
+    },
+    {
+        "greek": "σκέφτομαι",
+        "english": [
+            "to think",
+            " to ponder"
+        ]
+    },
+    {
+        "greek": "καταλαβαίνω",
+        "english": [
+            "to understand"
+        ]
+    },
+    {
+        "greek": "πιστεύω",
+        "english": [
+            "to believe"
+        ]
+    },
+    {
+        "greek": "θυμάμαι",
+        "english": [
+            "to remember"
+        ]
+    },
+    {
+        "greek": "αναγνωρίζω",
+        "english": [
+            "to recognize"
+        ]
+    },
+    {
+        "greek": "μοιάζω",
+        "english": [
+            "to look like",
+            " to resemble"
+        ]
+    },
+    {
+        "greek": "αισθάνομαι",
+        "english": [
+            "to feel"
+        ]
+    },
+    {
+        "greek": "σημαίνω",
+        "english": [
+            "to mean"
+        ]
+    },
+    {
+        "greek": "ελπίζω",
+        "english": [
+            "to hope"
+        ]
+    },
+    {
+        "greek": "αποφασίζω",
+        "english": [
+            "to decide"
+        ]
+    },
+    {
+        "greek": "εξηγώ",
+        "english": [
+            "to explain"
+        ]
+    },
+    {
+        "greek": "δείχνω",
+        "english": [
+            "to show",
+            " to point out"
+        ]
+    },
+    {
+        "greek": "γράφω",
+        "english": [
+            "to write"
+        ]
+    },
+    {
+        "greek": "διαβάζω",
+        "english": [
+            "to read"
+        ]
+    },
+    {
+        "greek": "στέλνω",
+        "english": [
+            "to send"
+        ]
+    },
+    {
+        "greek": "λαμβάνω",
+        "english": [
+            "to receive"
+        ]
+    },
+    {
+        "greek": "καλώ",
+        "english": [
+            "to call",
+            " to invite"
+        ]
+    },
+    {
+        "greek": "παρακαλώ",
+        "english": [
+            "to ask politely",
+            " please",
+            " to beg"
+        ]
+    },
+    {
+        "greek": "ευχαριστώ",
+        "english": [
+            "to thank"
+        ]
+    },
+    {
+        "greek": "επαναλαμβάνω",
+        "english": [
+            "to repeat"
+        ]
+    },
+    {
+        "greek": "υπόσχομαι",
+        "english": [
+            "to promise"
+        ]
+    },
+    {
+        "greek": "αρνούμαι",
+        "english": [
+            "to refuse",
+            " to deny"
+        ]
+    },
+    {
+        "greek": "συμφωνώ",
+        "english": [
+            "to agree"
+        ]
+    },
+    {
+        "greek": "λατρεύω",
+        "english": [
+            "to adore",
+            " to worship"
+        ]
+    },
+    {
+        "greek": "θαυμάζω",
+        "english": [
+            "to admire"
+        ]
+    },
+    {
+        "greek": "συμπαθώ",
+        "english": [
+            "to like",
+            " to be fond of"
+        ]
+    },
+    {
+        "greek": "μισώ",
+        "english": [
+            "to hate"
+        ]
+    },
+    {
+        "greek": "φοβάμαι",
+        "english": [
+            "to be afraid",
+            " to fear"
+        ]
+    },
+    {
+        "greek": "θυμώνω",
+        "english": [
+            "to get angry"
+        ]
+    },
+    {
+        "greek": "χαίρομαι",
+        "english": [
+            "to be glad",
+            " to rejoice"
+        ]
+    },
+    {
+        "greek": "λυπάμαι",
+        "english": [
+            "to be sorry",
+            " to feel sad"
+        ]
+    },
+    {
+        "greek": "στεναχωριέμαι",
+        "english": [
+            "to be sad",
+            " to be upset"
+        ]
+    },
+    {
+        "greek": "κλαίω",
+        "english": [
+            "to cry"
+        ]
+    },
+    {
+        "greek": "δακρύζω",
+        "english": [
+            "to tear up",
+            " to shed a tear"
+        ]
+    },
+    {
+        "greek": "απολαμβάνω",
+        "english": [
+            "to enjoy"
+        ]
+    },
+    {
+        "greek": "γοητεύω",
+        "english": [
+            "to charm",
+            " to fascinate"
+        ]
+    },
+    {
+        "greek": "απογοητεύω",
+        "english": [
+            "to disappoint"
+        ]
+    },
+    {
+        "greek": "δίνω",
+        "english": [
+            "to give"
+        ]
+    },
+    {
+        "greek": "παίρνω",
+        "english": [
+            "to take",
+            " to get"
+        ]
+    },
+    {
+        "greek": "φέρνω",
+        "english": [
+            "to bring",
+            " to fetch"
+        ]
+    },
+    {
+        "greek": "αφήνω",
+        "english": [
+            "to let",
+            " to leave behind"
+        ]
+    },
+    {
+        "greek": "βάζω",
+        "english": [
+            "to put",
+            " to place"
+        ]
+    },
+    {
+        "greek": "βρίσκω",
+        "english": [
+            "to find"
+        ]
+    },
+    {
+        "greek": "χάνω",
+        "english": [
+            "to lose"
+        ]
+    },
+    {
+        "greek": "χρειάζομαι",
+        "english": [
+            "to need"
+        ]
+    },
+    {
+        "greek": "δέχομαι",
+        "english": [
+            "to accept",
+            " to receive"
+        ]
+    },
+    {
+        "greek": "αγοράζω",
+        "english": [
+            "to buy"
+        ]
+    },
+    {
+        "greek": "πληρώνω",
+        "english": [
+            "to pay"
+        ]
+    },
+    {
+        "greek": "δουλεύω",
+        "english": [
+            "to work"
+        ]
+    },
+    {
+        "greek": "κοιμάμαι",
+        "english": [
+            "to sleep"
+        ]
+    },
+    {
+        "greek": "αποκοιμιέμαι",
+        "english": [
+            "to fall asleep"
+        ]
+    },
+    {
+        "greek": "τρώω",
+        "english": [
+            "to eat"
+        ]
+    },
+    {
+        "greek": "πίνω",
+        "english": [
+            "to drink"
+        ]
+    },
+    {
+        "greek": "μαγειρεύω",
+        "english": [
+            "to cook"
+        ]
+    },
+    {
+        "greek": "καθαρίζω",
+        "english": [
+            "to clean"
+        ]
+    },
+    {
+        "greek": "πλένω",
+        "english": [
+            "to wash"
+        ]
+    },
+    {
+        "greek": "ανοίγω",
+        "english": [
+            "to open"
+        ]
+    },
+    {
+        "greek": "κλείνω",
+        "english": [
+            "to close",
+            " to shut",
+            " to switch off"
+        ]
+    },
+    {
+        "greek": "κόβω",
+        "english": [
+            "to cut"
+        ]
+    },
+    {
+        "greek": "κάθομαι",
+        "english": [
+            "to sit"
+        ]
+    },
+    {
+        "greek": "σηκώνομαι",
+        "english": [
+            "to get up",
+            " to stand up"
+        ]
+    },
+    {
+        "greek": "ξεκουράζομαι",
+        "english": [
+            "to rest"
+        ]
+    },
+    {
+        "greek": "προετοιμάζω",
+        "english": [
+            "to prepare"
+        ]
+    },
+    {
+        "greek": "οργανώνω",
+        "english": [
+            "to organize"
+        ]
+    },
+    {
+        "greek": "αλλάζω",
+        "english": [
+            "to change"
+        ]
+    },
+    {
+        "greek": "μετράω",
+        "english": [
+            "to count"
+        ]
+    },
+    {
+        "greek": "χρησιμοποιώ",
+        "english": [
+            "to use"
+        ]
+    },
+    {
+        "greek": "πιάνω",
+        "english": [
+            "to catch",
+            " to grip",
+            " to grab"
+        ]
+    },
+    {
+        "greek": "αγγίζω",
+        "english": [
+            "to touch (physically)"
+        ]
+    },
+    {
+        "greek": "κρεμάω",
+        "english": [
+            "to hang"
+        ]
+    },
+    {
+        "greek": "στρίβω",
+        "english": [
+            "to turn (a corner)"
+        ]
+    },
+    {
+        "greek": "αρχίζω",
+        "english": [
+            "to begin",
+            " to start (synonym of ξεκινώ)"
+        ]
+    },
+    {
+        "greek": "τελειώνω",
+        "english": [
+            "to finish",
+            " to end"
+        ]
+    },
+    {
+        "greek": "συνεχίζω",
+        "english": [
+            "to continue"
+        ]
+    },
+    {
+        "greek": "περιμένω",
+        "english": [
+            "to wait"
+        ]
+    },
+    {
+        "greek": "μαθαίνω",
+        "english": [
+            "to learn"
+        ]
+    },
+    {
+        "greek": "διδάσκω",
+        "english": [
+            "to teach"
+        ]
+    },
+    {
+        "greek": "δοκιμάζω",
+        "english": [
+            "to try",
+            " to taste"
+        ]
+    },
+    {
+        "greek": "προσθέτω",
+        "english": [
+            "to add"
+        ]
+    },
+    {
+        "greek": "διαλέγω",
+        "english": [
+            "to choose",
+            " to pick"
+        ]
+    },
+    {
+        "greek": "επιτρέπω",
+        "english": [
+            "to allow",
+            " to permit"
+        ]
+    },
+    {
+        "greek": "αποτρέπω",
+        "english": [
+            "to prevent"
+        ]
+    },
+    {
+        "greek": "διατηρώ",
+        "english": [
+            "to keep",
+            " to maintain",
+            " to preserve"
+        ]
+    },
+    {
+        "greek": "παίζω",
+        "english": [
+            "to play (a game or instrument)"
+        ]
+    },
+    {
+        "greek": "σκαρφαλώνω",
+        "english": [
+            "to climb"
+        ]
+    },
+    {
+        "greek": "αθλούμαι",
+        "english": [
+            "to exercise"
+        ]
+    },
+    {
+        "greek": "κερδίζω",
+        "english": [
+            "to win"
+        ]
+    },
+    {
+        "greek": "πετάω",
+        "english": [
+            "to fly",
+            " to throw"
+        ]
+    },
+    {
+        "greek": "πυροβολώ",
+        "english": [
+            "to shoot"
+        ]
+    },
+    {
+        "greek": "φτιάχνω",
+        "english": [
+            "to make",
+            " to build",
+            " to fix"
+        ]
+    },
+    {
+        "greek": "σπάω",
+        "english": [
+            "to break"
+        ]
+    },
+    {
+        "greek": "ζω",
+        "english": [
+            "to live (be alive)"
+        ]
+    },
+    {
+        "greek": "πετυχαίνω",
+        "english": [
+            "to succeed",
+            " to achieve"
+        ]
+    },
+    {
+        "greek": "συμβαίνω",
+        "english": [
+            "to happen",
+            " to occur"
+        ]
+    },
+    {
+        "greek": "ενεργοποιώ",
+        "english": [
+            "to activate",
+            " to turn on"
+        ]
+    },
+    {
+        "greek": "φωνάζω",
+        "english": [
+            "to shout",
+            " to call out"
+        ]
+    },
+    {
+        "greek": "τηλεφωνώ",
+        "english": [
+            "to phone",
+            " to call (by telephone)"
+        ]
+    },
+    {
+        "greek": "ψωνίζω",
+        "english": [
+            "to shop"
+        ]
+    },
+    {
+        "greek": "προσέχω",
+        "english": [
+            "to pay attention",
+            " to be careful"
+        ]
+    },
+    {
+        "greek": "βιάζομαι",
+        "english": [
+            "to hurry",
+            " to be in a rush"
+        ]
+    },
+    {
+        "greek": "γνωρίζω",
+        "english": [
+            "to know (be acquainted)",
+            " to meet for the first time"
+        ]
+    },
+    {
+        "greek": "πεθαίνω",
+        "english": [
+            "to die"
+        ]
+    },
+    {
+        "greek": "λέγομαι",
+        "english": [
+            "to be called",
+            " to be named"
+        ]
+    },
+    {
+        "greek": "φαίνομαι",
+        "english": [
+            "to seem",
+            " to appear"
+        ]
+    },
+    {
+        "greek": "στέκομαι",
+        "english": [
+            "to stand"
+        ]
+    },
+    {
+        "greek": "φροντίζω",
+        "english": [
+            "to take care of",
+            " to look after"
+        ]
+    },
+    {
+        "greek": "ανησυχώ",
+        "english": [
+            "to worry",
+            " to be anxious"
+        ]
+    },
+    {
+        "greek": "ενδιαφέρομαι",
+        "english": [
+            "to be interested (in)"
+        ]
+    },
+    {
+        "greek": "δανείζω",
+        "english": [
+            "to lend"
+        ]
+    },
+    {
+        "greek": "δανείζομαι",
+        "english": [
+            "to borrow"
+        ]
+    },
+    {
+        "greek": "χωρίζω",
+        "english": [
+            "to separate",
+            " to divorce"
+        ]
+    },
+    {
+        "greek": "καπνίζω",
+        "english": [
+            "to smoke"
+        ]
+    },
+    {
+        "greek": "κοστίζω",
+        "english": [
+            "to cost"
+        ]
+    },
+    {
+        "greek": "διασκεδάζω",
+        "english": [
+            "to have fun",
+            " to entertain"
+        ]
+    },
+    {
+        "greek": "μοιράζομαι",
+        "english": [
+            "to share"
+        ]
+    },
+    {
+        "greek": "λείπω",
+        "english": [
+            "to be absent",
+            " to be missing"
+        ]
+    },
+    {
+        "greek": "προσπαθώ",
+        "english": [
+            "to try",
+            " to attempt"
+        ]
+    },
+    {
+        "greek": "προτιμώ",
+        "english": [
+            "to prefer"
+        ]
+    },
+    {
+        "greek": "αρέσω",
+        "english": [
+            "to be pleasing"
+        ]
+    },
+    {
+        "greek": "παραπονιέμαι",
+        "english": [
+            "to complain"
+        ]
+    },
+    {
+        "greek": "κρύβω",
+        "english": [
+            "to hide"
+        ]
+    },
+    {
+        "greek": "ρίχνω",
+        "english": [
+            "to throw",
+            " to drop"
+        ]
+    },
+    {
+        "greek": "δημιουργώ",
+        "english": [
+            "to create"
+        ]
+    },
+    {
+        "greek": "ονειρεύομαι",
+        "english": [
+            "to dream"
+        ]
+    },
+    {
+        "greek": "προσκαλώ",
+        "english": [
+            "to invite"
+        ]
+    },
+    {
+        "greek": "παντρεύομαι",
+        "english": [
+            "to get married"
+        ]
+    },
+    {
+        "greek": "γιορτάζω",
+        "english": [
+            "to celebrate"
+        ]
+    },
+    {
+        "greek": "μετακομίζω",
+        "english": [
+            "to move (change residence)"
+        ]
+    },
+    {
+        "greek": "αρχίζω",
+        "english": [
+            "to begin"
+        ]
+    },
+    {
+        "greek": "πληροφορώ",
+        "english": [
+            "to inform"
+        ]
+    },
+    {
+        "greek": "εκπλήσσω",
+        "english": [
+            "to surprise"
+        ]
+    },
+    {
+        "greek": "ζεσταίνω",
+        "english": [
+            "to warm up"
+        ]
+    },
+    {
+        "greek": "κρυώνω",
+        "english": [
+            "to feel cold"
+        ]
+    },
+    {
+        "greek": "ντύνομαι",
+        "english": [
+            "to get dressed"
+        ]
+    },
+    {
+        "greek": "γδύνομαι",
+        "english": [
+            "to get undressed"
+        ]
+    },
+    {
+        "greek": "σιδερώνω",
+        "english": [
+            "to iron (clothes)"
+        ]
+    },
+    {
+        "greek": "σκουπίζω",
+        "english": [
+            "to sweep",
+            " to wipe"
+        ]
+    },
+    {
+        "greek": "πλένομαι",
+        "english": [
+            "to wash oneself"
+        ]
+    },
+    {
+        "greek": "βουρτσίζω",
+        "english": [
+            "to brush"
+        ]
+    },
+    {
+        "greek": "χτενίζω",
+        "english": [
+            "to comb"
+        ]
+    },
+    {
+        "greek": "κλειδώνω",
+        "english": [
+            "to lock"
+        ]
+    },
+    {
+        "greek": "ξεκλειδώνω",
+        "english": [
+            "to unlock"
+        ]
+    },
+    {
+        "greek": "παρκάρω",
+        "english": [
+            "to park (a car)"
+        ]
+    },
+    {
+        "greek": "περνάω",
+        "english": [
+            "to pass",
+            " to cross",
+            " to drop by"
+        ]
+    },
+    {
+        "greek": " περνώ",
+        "english": [
+            "to pass",
+            " to cross",
+            " to drop by"
+        ]
+    },
+    {
+        "greek": "περπατάω",
+        "english": [
+            "to walk"
+        ]
+    },
+    {
+        "greek": " περπατώ",
+        "english": [
+            "to walk"
+        ]
+    },
+    {
+        "greek": "πηδάω",
+        "english": [
+            "to jump"
+        ]
+    },
+    {
+        "greek": " πηδώ",
+        "english": [
+            "to jump"
+        ]
+    },
+    {
+        "greek": "κοιτάω",
+        "english": [
+            "to look at",
+            " to watch"
+        ]
+    },
+    {
+        "greek": " κοιτώ",
+        "english": [
+            "to look at",
+            " to watch"
+        ]
+    },
+    {
+        "greek": "ξεχνάω",
+        "english": [
+            "to forget"
+        ]
+    },
+    {
+        "greek": " ξεχνώ",
+        "english": [
+            "to forget"
+        ]
+    },
+    {
+        "greek": "μιλάω",
+        "english": [
+            "to speak",
+            " to talk"
+        ]
+    },
+    {
+        "greek": " μιλώ",
+        "english": [
+            "to speak",
+            " to talk"
+        ]
+    },
+    {
+        "greek": "ρωτάω",
+        "english": [
+            "to ask (a question)"
+        ]
+    },
+    {
+        "greek": " ρωτώ",
+        "english": [
+            "to ask (a question)"
+        ]
+    },
+    {
+        "greek": "ζητάω",
+        "english": [
+            "to ask for",
+            " to request"
+        ]
+    },
+    {
+        "greek": " ζητώ",
+        "english": [
+            "to ask for",
+            " to request"
+        ]
+    },
+    {
+        "greek": "απαντάω",
+        "english": [
+            "to answer",
+            " to respond"
+        ]
+    },
+    {
+        "greek": " απαντώ",
+        "english": [
+            "to answer",
+            " to respond"
+        ]
+    },
+    {
+        "greek": "τραγουδάω",
+        "english": [
+            "to sing"
+        ]
+    },
+    {
+        "greek": " τραγουδώ",
+        "english": [
+            "to sing"
+        ]
+    },
+    {
+        "greek": "αγαπάω",
+        "english": [
+            "to love"
+        ]
+    },
+    {
+        "greek": " αγαπώ",
+        "english": [
+            "to love"
+        ]
+    },
+    {
+        "greek": "γελάω",
+        "english": [
+            "to laugh"
+        ]
+    },
+    {
+        "greek": " γελώ",
+        "english": [
+            "to laugh"
+        ]
+    },
+    {
+        "greek": "χαμογελάω",
+        "english": [
+            "to smile"
+        ]
+    },
+    {
+        "greek": " χαμογελώ",
+        "english": [
+            "to smile"
+        ]
+    },
+    {
+        "greek": "κρατάω",
+        "english": [
+            "to hold",
+            " to keep"
+        ]
+    },
+    {
+        "greek": " κρατώ",
+        "english": [
+            "to hold",
+            " to keep"
+        ]
+    },
+    {
+        "greek": "πουλάω",
+        "english": [
+            "to sell"
+        ]
+    },
+    {
+        "greek": " πωλώ",
+        "english": [
+            "to sell"
+        ]
+    },
+    {
+        "greek": "κουβαλάω",
+        "english": [
+            "to carry"
+        ]
+    },
+    {
+        "greek": " κουβαλώ",
+        "english": [
+            "to carry"
+        ]
+    },
+    {
+        "greek": "ξυπνάω",
+        "english": [
+            "to wake up"
+        ]
+    },
+    {
+        "greek": " ξυπνώ",
+        "english": [
+            "to wake up"
+        ]
+    },
+    {
+        "greek": "φοράω",
+        "english": [
+            "to wear",
+            " to put on"
+        ]
+    },
+    {
+        "greek": " φορώ",
+        "english": [
+            "to wear",
+            " to put on"
+        ]
+    },
+    {
+        "greek": "ακουμπάω",
+        "english": [
+            "to touch",
+            " to lean on"
+        ]
+    },
+    {
+        "greek": " ακουμπώ",
+        "english": [
+            "to touch",
+            " to lean on"
+        ]
+    },
+    {
+        "greek": "πατάω",
+        "english": [
+            "to press",
+            " to step on"
+        ]
+    },
+    {
+        "greek": " πατώ",
+        "english": [
+            "to press",
+            " to step on"
+        ]
+    },
+    {
+        "greek": "ξεκινάω",
+        "english": [
+            "to start",
+            " to begin"
+        ]
+    },
+    {
+        "greek": " ξεκινώ",
+        "english": [
+            "to start",
+            " to begin"
+        ]
+    },
+    {
+        "greek": "σταματάω",
+        "english": [
+            "to stop"
+        ]
+    },
+    {
+        "greek": " σταματώ",
+        "english": [
+            "to stop"
+        ]
+    },
+    {
+        "greek": "κολυμπάω",
+        "english": [
+            "to swim"
+        ]
+    },
+    {
+        "greek": " κολυμπώ",
+        "english": [
+            "to swim"
+        ]
+    },
+    {
+        "greek": "συναντάω",
+        "english": [
+            "to meet (encounter)"
+        ]
+    },
+    {
+        "greek": " συναντώ",
+        "english": [
+            "to meet (encounter)"
+        ]
+    },
+    {
+        "greek": "βοηθάω",
+        "english": [
+            "to help"
+        ]
+    },
+    {
+        "greek": " βοηθώ",
+        "english": [
+            "to help"
+        ]
+    },
+    {
+        "greek": "πονάω",
+        "english": [
+            "to hurt",
+            " to be in pain"
+        ]
+    },
+    {
+        "greek": " πονώ",
+        "english": [
+            "to hurt",
+            " to be in pain"
+        ]
+    },
+    {
+        "greek": "συζητάω",
+        "english": [
+            "to discuss",
+            " to debate"
+        ]
+    },
+    {
+        "greek": " συζητώ",
+        "english": [
+            "to discuss",
+            " to debate"
+        ]
+    }
+]
