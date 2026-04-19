@@ -1250,7 +1250,11 @@
         },
         "meanings": [
             "to become",
-            "to happen"
+            "to happen",
+            "to turn into",
+            "to be created",
+            "to happen",
+            "to be (possible)"
         ],
         "conjugations": [
             {
@@ -11356,7 +11360,9 @@
         },
         "meanings": [
             "to put",
-            "to place"
+            "to place",
+            "to put on",
+            "to give a score"
         ],
         "conjugations": [
             {
@@ -19902,7 +19908,8 @@
         },
         "meanings": [
             "to pay attention",
-            "to be careful"
+            "to be careful",
+            "to take care (of someone)"
         ],
         "conjugations": [
             {
@@ -22387,7 +22394,7 @@
             "greek": "λείπω",
             "english": ""
         },
-        "meanings": [],
+        "meanings": ["to leave","to be absent","to be away","to lack"],
         "conjugations": [
             {
                 "tense": "present",
@@ -29528,7 +29535,7 @@
     "πετώ": {
         "verb": {
             "greek": "πετώ",
-            "english": "*πετάω"
+            "english": ""
         },
         "meanings": [
             "to fly",
@@ -47978,7 +47985,7 @@
             "english": ""
         },
         "meanings": [
-            "to judge"
+            "to judge","to assess"
         ],
         "conjugations": [
             {
@@ -52627,7 +52634,7 @@
             "greek": "βρέχω",
             "english": ""
         },
-        "meanings": [],
+        "meanings": ["to rain","to wet"],
         "conjugations": [
             {
                 "tense": "present",
